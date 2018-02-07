@@ -21,7 +21,7 @@ if (process.env.NODE_ENV === 'development') {
             version: '1.0.1',
             description: 'Demonstrating how to desribe a RESTful API with Swagger',
         },
-        host: 'localhost:3000',
+        host: 'localhost:9000',
         basePath: '/',
     };
 
@@ -47,7 +47,7 @@ if (process.env.NODE_ENV === 'development') {
 app.use('/api', Api);
 // app.use('/', Web);
 
-app.use(Express.static(Path.resolve(__dirname, '..', 'public'), {maxAge: 31557600000}));
+app.use(Express.static(Path.resolve(__dirname, 'server/public/uploads'), {maxAge: 31557600000}));
 module.exports = app;
 const PORT = config.port || 9000;
 app.listen(config.port, () => {

@@ -1,14 +1,24 @@
 import HTTPStatus from "http-status";
 import Response from "../../helpers/Response";
 import {UserRepository} from "../../repositories";
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 
 let userRepository = new UserRepository();
 
 class UserController {
 
     index = async (req, res) => {
+        let sex = req.param('sex');
+        console.log(sex);
         try {
-            let users = await userRepository.find();
+            let users = await userRepository.find({
+                where: {
+                    age: {
+                        $gte: 18,
+                    }
+                }, limit: 10
+            });
             return Response.returnSuccess(res, users);
         } catch (e) {
             return Response.returnError(res, e.message, HTTPStatus.BAD_REQUEST);

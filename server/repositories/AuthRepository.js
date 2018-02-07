@@ -43,24 +43,4 @@ export default class AuthRepository {
             throw new Error(e);
         }
     }
-
-    // async register(data) {
-    //     const {username, email, password} = data;
-    //     try {
-    //         let user = await User.findOne({
-    //             where: {
-    //                 username: username,
-    //             },
-    //         });
-    //         if (user) {
-    //             throw new Error('Username is exist');
-    //         } else {
-    //             User.create({username, email, password});
-    //             return {message: "Register completed"};
-    //         }
-    //     } catch (e) {
-    //         throw new Error(e);
-    //     }
-    // }
-
 }

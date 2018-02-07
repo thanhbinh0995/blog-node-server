@@ -38,7 +38,16 @@ module.exports = {
                 type: Sequelize.INTEGER(),
                 allowNull: true,
             },
+            sex: {
+                type: Sequelize.ENUM('MALE', 'FEMALE'),
+                defaultValue: 'MALE',
+                allowNull: true,
+            },
             address: {
+                type: Sequelize.STRING(100),
+                allowNull: true,
+            },
+            avatar: {
                 type: Sequelize.STRING(100),
                 allowNull: true,
             },

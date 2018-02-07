@@ -5,11 +5,15 @@ module.exports = {
     up: function (queryInterface, Sequelize) {
         return User
             .create({
-                username: Faker.name.firstName(),
+                username: Faker.name.findName(),
+                firstName: Faker.name.firstName(),
+                lastName: Faker.name.lastName(),
                 email: Faker.internet.email(),
                 password: 'abc123',
                 role: 'NORMAL_USER',
-                age: Faker.random.number()
+                age: Faker.random.number({min: 14, max: 80}),
+                sex: Faker.random.arrayElement(["MALE", "FEMALE"]),
+                avatar: '66.png'
             })
             .then(user => {
                 return true;

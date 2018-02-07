@@ -6,7 +6,9 @@ module.exports = {
                 username: 'user',
                 email: 'user@gmail.com',
                 password: 'abc123',
-                role: 'NORMAL_USER'
+                role: 'NORMAL_USER',
+                age: 18,
+                sex: "MALE"
             })
             .then(user => {
                 return true;
